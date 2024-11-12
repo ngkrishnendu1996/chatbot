@@ -1,0 +1,80 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  # - affirm
+  # - deny
+  # - mood_great
+  # - mood_unhappy
+  - bot_challenge
+  # - recommend_music
+  # - specify_genre
+  # - specify_artist
+  # - specify_mood
+  - request_book_recommendation
+  - specify_genre
+  - specify_author
+  
+slots:
+  genre:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: genre
+  author:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: author      
+  # artist:
+  #   type: text
+  #   mappings:
+  #     - type: from_entity
+  #       entity: artist
+  # mood:
+  #   type: text
+  #   mappings:
+  #     - type: from_entity
+  #       entity: mood
+entities:
+  - genre
+  - author
+  # - mood
+  # - artist
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  # utter_cheer_up:
+  # - text: "Here is something to cheer you up:"
+  #   image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  # utter_did_that_help:
+  # - text: "Did that help you?"
+
+  # utter_happy:
+  # - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye.Enjoy the book"
+
+  utter_iamabot:
+  - text: "Hey! How are you? I am a bot, here to assist you with book recommendations."
+
+  
+  utter_ask_genre:
+    - text: "What genre of book are you interested in?"
+  utter_no_recommendations:
+    - text: "Sorry, I don't have recommendations in that genre."
+  utter_ask_author:
+    - text: "Which author would you like a recommendation from?"  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+  - action_book_recommendation  
