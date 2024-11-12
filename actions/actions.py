@@ -84,7 +84,7 @@ class ActionRecommendBooks(Action):
         author = tracker.get_slot('author')
         
         # Replace 'YOUR_API_KEY' with your actual Google Books API key
-        api_key = "AIzaSyCtp7mmL8XH-Eu8Cg3ljwigrlLrErlQkvE"
+        api_key = "--------"
         
         # Determine the query type based on available slot data
         if genre:
